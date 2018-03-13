@@ -43,7 +43,17 @@ class MainVC: UIViewController {
         v3Frame.origin.x = self.view.frame.width * 2
         v3.view.frame = v3Frame
         
-        self.menuScrollView.contentSize = CGSize(width: self.view.frame.width * 3, height: self.view.frame.size.height)
+        self.menuScrollView.contentSize = CGSize(width: self.view.frame.width * 3, height: self.menuScrollView.frame.size.height)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DispatchQueue.main.async {
+            
+            self.menuScrollView.scrollRectToVisible(CGRect(x: self.view.frame.width, y: 0, width: self.menuScrollView.frame.width, height: self.menuScrollView.frame.size.height), animated: false)
+            
+           // self.menuScrollView.setContentOffset(CGPoint(x: self.view.frame.width, y: 0), animated: false)
+        }
     }
 }
 

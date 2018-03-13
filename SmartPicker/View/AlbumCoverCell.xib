@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="j9N-rM-fbp" customClass="AlbumCoverCell" customModule="SmartPicker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XIC-Za-TKt">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EwF-0e-Eu7">
+                                <rect key="frame" x="5" y="5" width="140" height="140"/>
+                                <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yPU-79-SnZ">
+                                <rect key="frame" x="10" y="10" width="130" height="130"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <color key="highlightedColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yPU-79-SnZ" firstAttribute="centerY" secondItem="XIC-Za-TKt" secondAttribute="centerY" id="1jC-sF-jA4"/>
+                            <constraint firstItem="yPU-79-SnZ" firstAttribute="centerX" secondItem="XIC-Za-TKt" secondAttribute="centerX" id="B1L-Yq-2ah"/>
+                            <constraint firstAttribute="trailing" secondItem="yPU-79-SnZ" secondAttribute="trailing" constant="10" id="Ee8-HO-3eJ"/>
+                            <constraint firstItem="yPU-79-SnZ" firstAttribute="top" secondItem="XIC-Za-TKt" secondAttribute="top" constant="10" id="L5j-UF-8zB"/>
+                            <constraint firstAttribute="trailing" secondItem="EwF-0e-Eu7" secondAttribute="trailing" constant="5" id="R56-d5-QxU"/>
+                            <constraint firstAttribute="bottom" secondItem="yPU-79-SnZ" secondAttribute="bottom" constant="10" id="eXx-I5-sTf"/>
+                            <constraint firstItem="EwF-0e-Eu7" firstAttribute="leading" secondItem="XIC-Za-TKt" secondAttribute="leading" constant="5" id="q8z-jg-n1e"/>
+                            <constraint firstAttribute="bottom" secondItem="EwF-0e-Eu7" secondAttribute="bottom" constant="5" id="rPs-pb-Arj"/>
+                            <constraint firstItem="yPU-79-SnZ" firstAttribute="leading" secondItem="XIC-Za-TKt" secondAttribute="leading" constant="10" id="x3c-Md-h3A"/>
+                            <constraint firstItem="EwF-0e-Eu7" firstAttribute="top" secondItem="XIC-Za-TKt" secondAttribute="top" constant="5" id="yXy-qc-9Lm"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="XIC-Za-TKt" secondAttribute="trailing" id="Ol6-uk-dYX"/>
+                <constraint firstItem="XIC-Za-TKt" firstAttribute="top" secondItem="j9N-rM-fbp" secondAttribute="top" id="OoZ-QA-jah"/>
+                <constraint firstAttribute="bottom" secondItem="XIC-Za-TKt" secondAttribute="bottom" id="Y0Q-Os-9GE"/>
+                <constraint firstItem="XIC-Za-TKt" firstAttribute="leading" secondItem="j9N-rM-fbp" secondAttribute="leading" id="xLv-LX-L2M"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Kee-ts-sBY"/>
+            <connections>
+                <outlet property="albumImageView" destination="EwF-0e-Eu7" id="tEQ-4c-ejG"/>
+                <outlet property="albumTitleLabel" destination="yPU-79-SnZ" id="8cA-nF-n9H"/>
+            </connections>
+            <point key="canvasLocation" x="-104" y="34"/>
+        </collectionViewCell>
+    </objects>
+</document>

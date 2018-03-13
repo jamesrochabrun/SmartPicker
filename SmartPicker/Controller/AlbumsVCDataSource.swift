@@ -38,6 +38,7 @@ class AlbumsVCDataSource: NSObject, UICollectionViewDataSource {
     var userCollections: PHFetchResult<PHCollection>!
     let sectionLocalizedTitles = ["All Photos", NSLocalizedString("Smart Albums", comment: ""), NSLocalizedString("Albums", comment: "")]
     private let collectionView: UICollectionView
+    private let imageManager = PHCachingImageManager()
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -48,14 +49,18 @@ class AlbumsVCDataSource: NSObject, UICollectionViewDataSource {
             let cell: AlbumCoverCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
             let collection = smartAlbums.object(at: indexPath.row)
             cell.albumImageView.isUserInteractionEnabled = false
-            let vm = AlbumCoverViewModel(cover: nil, title: collection.localizedTitle)
+            let assets = PHAsset.fetchAssets(in: collection, options: nil)
+            let asset = assets.firstObject
+            let vm = AlbumCoverViewModel(cover: asset, title: collection.localizedTitle, size: cell.frame.size)
             cell.configure(viewModel: vm)
             return cell
         case .userCollections:
             let cell: AlbumCoverCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
             cell.albumImageView.isUserInteractionEnabled = false
-            let collection = userCollections.object(at: indexPath.row)
-            let vm = AlbumCoverViewModel(cover: nil, title: collection.localizedTitle)
+            let collection = userCollections.object(at: indexPath.row) as! PHAssetCollection
+            let assets = PHAsset.fetchAssets(in: collection, options: nil)
+            let asset = assets.firstObject
+            let vm = AlbumCoverViewModel(cover: asset, title: collection.localizedTitle, size: cell.frame.size)
             cell.configure(viewModel: vm)
             return cell
         }
@@ -80,7 +85,7 @@ class AlbumsVCDataSource: NSObject, UICollectionViewDataSource {
             let header: AlbumCoverCell = collectionView.dequeueSuplementaryView(of: kind, at: indexPath)
             header.delegate = self
             let coverAsset = allPhotos.firstObject
-            let vm = AlbumCoverViewModel(cover: coverAsset, title: sectionLocalizedTitles[indexPath.section])
+            let vm = AlbumCoverViewModel(cover: coverAsset, title: sectionLocalizedTitles[indexPath.section], size: header.frame.size)
             header.configure(viewModel: vm)
             return header
         case .smartAlbums, .userCollections:

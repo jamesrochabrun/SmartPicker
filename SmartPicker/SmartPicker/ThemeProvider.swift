@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import PromiseKit
 
 // MARK: - protocol, used on nested enums
 protocol ThemeProvider {
-    var themeCompletion: (Theme) -> () { get }
-    var themesCompletion: ([Theme]) -> () { get }
+    
+    var themePromise: Promise<Theme> { get }
+    var themesPromise: Promise<[Theme]> { get }
     func constructPeriodPredicate(from period: [Date]) -> NSPredicate
 }

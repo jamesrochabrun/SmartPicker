@@ -29,8 +29,8 @@ enum ThemeFabric {
         // moment: A moment in the Photos app.
         /// for now just fetch random album from moments albums
         case getRandomThemes(titles: [String], sortDescriptors: [SortProvider])
-        case getRandomThemeWith(title: String, sortDescriptors: [SortProvider])
-        case getThemes(subType: PHAssetCollectionSubtype, period: ThemePeriodAttribute, justFavorites: Bool, sortDescriptors: [SortProvider])
+        case getRandomMoments(qty: Int, sortDescriptors: [SortProvider])
+       // case getThemes(subType: PHAssetCollectionSubtype, period: ThemePeriodAttribute, justFavorites: Bool, sortDescriptors: [SortProvider])
     }
 }
 

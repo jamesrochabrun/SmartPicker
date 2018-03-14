@@ -15,7 +15,6 @@ class PlacesVC: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .orange
+        
     }
-    
 }

@@ -7,8 +7,11 @@
 //
 
 import Foundation
-
+import Photos
 
 struct Theme {
-    
+    let title: String
+    let locationTitle: String
+    let potentialAssets: [PHAsset]
+    let uniqueID: String
 }

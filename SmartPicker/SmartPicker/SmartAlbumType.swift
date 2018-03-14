@@ -93,7 +93,7 @@ extension ThemeFabric.SmartAlbumType: ThemeProvider {
                     assets.append(asset)
                 }
                 
-                let curationTheme = Theme(title: assetCollection.localizedTitle!, locationTitle: "", potentialAssets: assets, uniqueID: (assetCollection.localizedTitle?.removingWhiteSpaces())!)
+                let curationTheme = Theme(title: assetCollection.localizedTitle!, locationTitle: "", potentialAssets: assets, uniqueID: (assetCollection.localizedTitle?.removingWhiteSpaces())!, location: nil)
                 
                 DispatchQueue.main.async {
                     if curationTheme.potentialAssets.count > 0 {

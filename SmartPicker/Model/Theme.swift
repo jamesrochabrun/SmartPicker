@@ -8,10 +8,12 @@
 
 import Foundation
 import Photos
+import CoreLocation
 
 struct Theme {
     let title: String
     let locationTitle: String
     let potentialAssets: [PHAsset]
     let uniqueID: String
+    let location: CLLocation?
 }

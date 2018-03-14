@@ -15,7 +15,7 @@ extension ThemeFabric.MomentType: ThemeProvider {
         switch self {
         default:
             return Promise { f, r in
-                f(Theme(title: "nothing you call the wrong promise", locationTitle: "text", potentialAssets: [], uniqueID: ""))
+                f(Theme(title: "nothing you call the wrong promise", locationTitle: "text", potentialAssets: [], uniqueID: "", location: nil))
             }
         }
     }
@@ -28,7 +28,7 @@ extension ThemeFabric.MomentType: ThemeProvider {
             return self.randomMomentThemes(titles: titles, sortDescriptors: sortDescriptors)
         default:
             return Promise { f, r in
-                f([Theme(title: "nothing you call the wrong promise", locationTitle: "nil", potentialAssets: [], uniqueID: "")])
+                f([Theme(title: "nothing you call the wrong promise", locationTitle: "nil", potentialAssets: [], uniqueID: "", location: nil)])
             }
         }
     }
@@ -95,7 +95,7 @@ extension ThemeFabric.MomentType: ThemeProvider {
             // TODO: aassetestimated count 'average' or how many the user tends to take for any moment
             /// check if moments has a title also it has more than one asset to work with
             if let title = collection.localizedTitle, !title.isEmpty,
-                collection.estimatedAssetCount > 7 {
+                collection.estimatedAssetCount > 0 {
                 collections.append(collection)
             }
         }
@@ -129,7 +129,8 @@ extension ThemeFabric.MomentType {
                     let uniqueID = themeTitleKey.removingWhiteSpaces()
                     /// this will help with the location subtitle
                     let locationTitle = self.constructLocationTitle(localizedTitle)
-                    let curationTheme = Theme(title: themeTitleKey, locationTitle: locationTitle, potentialAssets: assets, uniqueID: uniqueID)
+                    let aproxLocation = collection.approximateLocation
+                    let curationTheme = Theme(title: themeTitleKey, locationTitle: locationTitle, potentialAssets: assets, uniqueID: uniqueID, location: aproxLocation)
                     momentsThemes.append(curationTheme)
                 }
                 DispatchQueue.main.async {
@@ -159,7 +160,9 @@ extension ThemeFabric.MomentType {
                     let uniqueID = startDateTitle.removingWhiteSpaces()
                     /// this will help with the location subtitle
                     let locationTitle = self.constructLocationTitle(localizedTitle)
-                    let curationTheme = Theme(title: startDateTitle, locationTitle: locationTitle, potentialAssets: assets, uniqueID: uniqueID)
+                    // coordinates
+                    let approxLocation = collection.approximateLocation
+                    let curationTheme = Theme(title: startDateTitle, locationTitle: locationTitle, potentialAssets: assets, uniqueID: uniqueID, location: approxLocation)
                     momentsThemes.append(curationTheme)
                 }
                 DispatchQueue.main.async {

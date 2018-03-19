@@ -11,6 +11,7 @@ import Photos
 import CoreLocation
 
 struct Theme {
+    let themeCover: PHAsset?
     let title: String
     let locationTitle: String
     let potentialAssets: [PHAsset]

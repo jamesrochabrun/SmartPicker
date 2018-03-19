@@ -14,6 +14,7 @@ enum ThemeError: Error {
     case noPotentialAssetsFor(theme: String)
     case noPotentialAssets
     case noRandomMoments
+    case noThemes
     
     var localizedDescription: String {
         switch self {
@@ -21,6 +22,7 @@ enum ThemeError: Error {
         case .noPotentialAssetsFor(let theme): return "ThemeError No Potential assests for this theme: \(theme)"
         case .noRandomMoments: return "ThemeError no random moments founded"
         case .noPotentialAssets: return "ThemeError no assets"
+        case .noThemes: return "No themes founded"
         }
     }
 }

@@ -15,7 +15,7 @@ extension ThemeFabric.MomentType: ThemeProvider {
         switch self {
         default:
             return Promise { f, r in
-                f(Theme(title: "nothing you call the wrong promise", locationTitle: "text", potentialAssets: [], uniqueID: "", location: nil))
+                f(Theme(themeCover: nil, title: "nothing you call the wrong promise", locationTitle: "text", potentialAssets: [], uniqueID: "", location: nil))
             }
         }
     }
@@ -28,7 +28,7 @@ extension ThemeFabric.MomentType: ThemeProvider {
             return self.randomMomentThemes(titles: titles, sortDescriptors: sortDescriptors)
         default:
             return Promise { f, r in
-                f([Theme(title: "nothing you call the wrong promise", locationTitle: "nil", potentialAssets: [], uniqueID: "", location: nil)])
+                f([Theme(themeCover: nil, title: "nothing you call the wrong promise", locationTitle: "nil", potentialAssets: [], uniqueID: "", location: nil)])
             }
         }
     }
@@ -88,7 +88,7 @@ extension ThemeFabric.MomentType: ThemeProvider {
     }
     
     /// - Helper function to return random collections
-    func getRandomCollections(qty: Int) -> [PHAssetCollection] {
+    private func getRandomCollections(qty: Int) -> [PHAssetCollection] {
         let momentsAlbumsResults: PHFetchResult<PHAssetCollection> =  PHAssetCollection.fetchAssetCollections(with: .moment, subtype: .albumRegular, options: nil)
         var collections: [PHAssetCollection] = []
         momentsAlbumsResults.enumerateObjects { collection, index, stop in
@@ -101,6 +101,10 @@ extension ThemeFabric.MomentType: ThemeProvider {
         }
         let randomCollection = collections.shuffled.choose(qty)
         return randomCollection
+    }
+    
+    private func getRandomAssetForCover(in assets: [PHAsset]) -> PHAsset? {
+        return assets.shuffled.choose(1).first
     }
 }
 
@@ -129,8 +133,11 @@ extension ThemeFabric.MomentType {
                     let uniqueID = themeTitleKey.removingWhiteSpaces()
                     /// this will help with the location subtitle
                     let locationTitle = self.constructLocationTitle(localizedTitle)
+                    /// location
                     let aproxLocation = collection.approximateLocation
-                    let curationTheme = Theme(title: themeTitleKey, locationTitle: locationTitle, potentialAssets: assets, uniqueID: uniqueID, location: aproxLocation)
+                    /// cover
+                    let randomCover = self.getRandomAssetForCover(in: assets)
+                    let curationTheme = Theme(themeCover: randomCover, title: themeTitleKey, locationTitle: locationTitle, potentialAssets: assets, uniqueID: uniqueID, location: aproxLocation)
                     momentsThemes.append(curationTheme)
                 }
                 DispatchQueue.main.async {
@@ -162,7 +169,10 @@ extension ThemeFabric.MomentType {
                     let locationTitle = self.constructLocationTitle(localizedTitle)
                     // coordinates
                     let approxLocation = collection.approximateLocation
-                    let curationTheme = Theme(title: startDateTitle, locationTitle: locationTitle, potentialAssets: assets, uniqueID: uniqueID, location: approxLocation)
+                    /// cover
+                    let randomCover = self.getRandomAssetForCover(in: assets)
+
+                    let curationTheme = Theme(themeCover: randomCover, title: startDateTitle, locationTitle: locationTitle, potentialAssets: assets, uniqueID: uniqueID, location: approxLocation)
                     momentsThemes.append(curationTheme)
                 }
                 DispatchQueue.main.async {

@@ -39,8 +39,8 @@ struct ThemePlaceViewModel {
     var subtitle: String?
     var coordinate: CLLocationCoordinate2D
     
-    private let placeAssets: [PHAsset]
-    private let annotationCover: PHAsset?
+    let placeAssets: [PHAsset]
+    let annotationCover: PHAsset
     
     init(themeVM: ThemePlaceViewModel) {
         self.title = themeVM.title

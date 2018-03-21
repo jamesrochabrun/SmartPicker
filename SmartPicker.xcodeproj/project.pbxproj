@@ -12,6 +12,7 @@
 		098E4A5B2058D98A00B6A7CE /* SmartAlbumType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098E4A5A2058D98A00B6A7CE /* SmartAlbumType.swift */; };
 		098E4A5E205F554400B6A7CE /* ThemesPlacesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098E4A5D205F554400B6A7CE /* ThemesPlacesDataSource.swift */; };
 		098E4A60205F5A2B00B6A7CE /* ThemePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098E4A5F205F5A2B00B6A7CE /* ThemePlace.swift */; };
+		098E4A622062281700B6A7CE /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098E4A612062281700B6A7CE /* CustomAnnotationView.swift */; };
 		1D2AF9FBD02F15C36862C032 /* Pods_SmartPickerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B016A7FBB1E0373CB26A6CD /* Pods_SmartPickerTests.framework */; };
 		7B2C51AB2053C70F002FF040 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C51AA2053C70F002FF040 /* AppDelegate.swift */; };
 		7B2C51AD2053C70F002FF040 /* AssetGridVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C51AC2053C70F002FF040 /* AssetGridVC.swift */; };
@@ -71,6 +72,7 @@
 		098E4A5A2058D98A00B6A7CE /* SmartAlbumType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartAlbumType.swift; sourceTree = "<group>"; };
 		098E4A5D205F554400B6A7CE /* ThemesPlacesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesPlacesDataSource.swift; sourceTree = "<group>"; };
 		098E4A5F205F5A2B00B6A7CE /* ThemePlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePlace.swift; sourceTree = "<group>"; };
+		098E4A612062281700B6A7CE /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
 		42BDD7C0BB61DE28BD27DD9E /* Pods-SmartPickerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPickerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartPickerTests/Pods-SmartPickerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4A143B8FF33E936554E95409 /* Pods_SmartPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B016A7FBB1E0373CB26A6CD /* Pods_SmartPickerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartPickerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,6 +224,7 @@
 				7B9B6B7F20548AD00049304E /* AlbumCoverCell.xib */,
 				7B9B6B83205499630049304E /* AlbumSectionHeader.swift */,
 				7B9B6B85205499BF0049304E /* AlbumSectionHeader.xib */,
+				098E4A612062281700B6A7CE /* CustomAnnotationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 				7B9B6B7E20548AC50049304E /* AlbumCoverCell.swift in Sources */,
 				098E4A5E205F554400B6A7CE /* ThemesPlacesDataSource.swift in Sources */,
 				7B2C51D52053C8F0002FF040 /* ThemeError.swift in Sources */,
+				098E4A622062281700B6A7CE /* CustomAnnotationView.swift in Sources */,
 				7B2C51AD2053C70F002FF040 /* AssetGridVC.swift in Sources */,
 				7B2C51D72053C95B002FF040 /* ThemePeriodAttribute.swift in Sources */,
 				7B2C51E82053D5E4002FF040 /* Reusable.swift in Sources */,
